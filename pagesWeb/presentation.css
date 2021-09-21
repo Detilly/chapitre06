@@ -1,5 +1,10 @@
 body {
     background-color: #c0c0c0;
     color: blue;
-    
+
+}
+
+img {
+    width: 100%;
+  height: auto;
 }

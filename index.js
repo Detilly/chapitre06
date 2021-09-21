@@ -5,9 +5,9 @@ const fs = require('fs');
 const PORT = process.env.PORT || 8000;
 let serveur = http.createServer((requete, reponse) => {
     console.log(requete.url);
-    if(requete.url === '/favicon.ico') {
+  /*  if(requete.url === '/favicon.ico') {
         // on ne fait rien...
-    } else if(requete.url === '/') {
+    } else */ if(requete.url === '/') {
         let fileName = path.join(__dirname, 'pagesWeb', 'index.html');
         affichePageWeb(fileName, reponse);
     } else {
@@ -44,9 +44,15 @@ function affichePageWeb(fileName, reponse) {
             break;
         case '.svg':
             typeContenu = 'image/svg+xml';
-            break;
-                
+            break;   
+        case '.ico':
+            typeContenu = 'image/x-icon';
+            break;   
     }
+
+    console.log('Nouvelle action !!!!!')
+
+
     fs.readFile( fileName, (err, contenu) => {
         if (err) {
         if (err.code == 'ENOENT') { //fichier non trouvé
